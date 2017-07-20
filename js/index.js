@@ -70,7 +70,6 @@ slider.prototype.banner = function(){
 	this.aSpan[this.index].className = "active";
 	move(this.aLi[this.index],{opacity:100});
 }
-
 slider.prototype.follow = function(index){
 	var that = this;
 	for(i = 0; i < this.aSpan.length ; i++){
@@ -84,25 +83,84 @@ slider.prototype.follow = function(index){
 }
 new slider();
 
-function showSlider(){
-	var oList = document.getElementById("f_list");
+
+//楼梯自动小轮播图
+function showSlider(list,sort,num){
+	var oList = document.getElementById(list);
 	var aBannerImage = oList.children;
-	var aSpan = document.querySelector(".f_list_sort").children;
+	var aSpan = document.querySelector(sort).children;
 	var index = 0;
+	var timer = null;
+	oList.style.width = aBannerImage[0].offsetWidth * aBannerImage.length +"px";
 	for(let i = 0 ; i < aBannerImage.length ; i++){
-		aBannerImage[i].style.background = "url(images/952-440-1" + i + ".jpg) no-repeat";
+		aBannerImage[i].style.background = "url(images/952-440-" + num + i + ".jpg) no-repeat";
 	}
-	var timer = setInterval(function(){
-		if(index == aBannerImage.length - 1){
-			index = 0;
-		}else{
-			index ++;
+	function sTimer(){
+		clearInterval(timer);
+		timer = setInterval(function(){
+			if(index == aBannerImage.length - 1){
+				index = 0;
+			}else{
+				index ++;
+			}
+			banner(index);
+		},4500);
+	}
+	sTimer();
+	for(let i = 0 ; i < aSpan.length ; i++){
+		aSpan[i].onclick = function(){
+			clearInterval(timer);
+			n = i;
+			banner(n);
+			setTimeout(function(){
+				sTimer();
+			},1000)
 		}
+	}
+	function banner(indexA){
 		for(var i = 0 ; i < aSpan.length; i++){
 			aSpan[i].className = "";
 		}
+		index = indexA;
 		aSpan[index].className = "active";
 		move(oList,{marginLeft:-index * aBannerImage[0].offsetWidth});	
-	},2000);
+	}
 }
-showSlider();
+showSlider("f_list_1f",".f_list_sort_1f",1);
+showSlider("f_list_2f",".f_list_sort_2f",2);
+showSlider("f_list_3f",".f_list_sort_3f",3);
+showSlider("f_list_4f",".f_list_sort_4f",4);
+showSlider("f_list_5f",".f_list_sort_5f",5);
+
+
+
+//商品分类二级菜单
+function twoMenu(){
+	var aWords = document.getElementsByClassName("cata_hot_words");
+	var aGroup = document.getElementsByClassName("cata_group");
+	var aSub = document.getElementsByClassName("cata_sub");
+	var aCover = document.getElementsByClassName("coverBorder");
+
+	for(let i = 0 ; i < aGroup.length ; i++){
+		
+		aGroup[i].onmouseover = function(){
+			this.style.boxShadow = "0 0 13px #666"
+			this.style.position = "relative";
+        	this.style.zIndex = "9999";
+        	aSub[i].style.display = "block";
+        	aWords[i].style.borderBottom = "none";
+        	aCover[i].style.display = "block";
+        	
+		}
+		aGroup[i].onmouseout = function(){
+			this.style.boxShadow = ""
+			this.style.position = "";
+    		this.style.zIndex = "";
+    		aSub[i].style.display = "none";
+    		aWords[i].style.borderBottom = "1px solid #e5e5e5";
+    		aCover[i].style.display = "none";
+			
+		}
+	}
+}
+twoMenu();
