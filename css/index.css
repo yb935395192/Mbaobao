@@ -33,6 +33,16 @@ ul, ol {
     height: 34px;
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif; }
+    .containerH header .user_name {
+      display: none;
+      font-size: 12px;
+      line-height: 34px;
+      float: left;
+      margin-right: 5px; }
+      .containerH header .user_name a {
+        color: #808080; }
+      .containerH header .user_name a:hover {
+        color: #d41c4f; }
     .containerH header .wel {
       font-size: 12px;
       color: #333;
@@ -43,13 +53,21 @@ ul, ol {
       line-height: 34px;
       float: left;
       margin-left: 8px;
-      color: #333; }
+      color: #333;
+      display: block; }
       .containerH header .user span {
         margin: 4px; }
         .containerH header .user span a {
           color: #666; }
         .containerH header .user span a:hover {
           color: #d41c4f; }
+    .containerH header .user_exit {
+      line-height: 34px;
+      cursor: pointer;
+      color: #808080;
+      margin-left: 6px;
+      float: left;
+      display: none; }
     .containerH header .userpanel {
       float: right;
       margin-top: 5px; }
@@ -278,12 +296,13 @@ ul, ol {
       height: 35px;
       width: 231px;
       text-align: center;
-      color: #fff;
       line-height: 35px;
       cursor: pointer;
       font-size: 14px;
       background: #ac143f;
       position: relative; }
+      .containerM .g_menu .nav_all a {
+        color: #fff; }
     .containerM .g_menu .nav_list {
       position: absolute;
       left: 0px;
@@ -435,6 +454,7 @@ ul, ol {
             line-height: 190%;
             display: inline-block;
             zoom: 1;
+            margin: 0;
             padding: 5px 0; }
             .nav_list .cata_group .cata_sub .cata_sub_list .dl_cata_words dl dd a {
               white-space: nowrap;
@@ -708,7 +728,7 @@ ul, ol {
   .f_show section span.active {
     background: rgba(0, 0, 0, 0.6); }
 
-#mod_list .mod_item {
+.mod_list .mod_item {
   width: 237px;
   float: left;
   border: 1px solid #e5e5e5;
@@ -717,35 +737,37 @@ ul, ol {
   margin-bottom: -1px;
   overflow: hidden;
   border-bottom: none; }
-  #mod_list .mod_item .pic {
+  .mod_list .mod_item .pic {
     width: 174px;
     height: 174px;
     margin: 0 auto;
     display: block; }
-  #mod_list .mod_item .info {
+  .mod_list .mod_item .info {
     padding: 7px 20px 21px;
     text-align: center;
     font-family: SimSun;
     font-size: 12px; }
-    #mod_list .mod_item .info span {
+    .mod_list .mod_item .info span {
       display: block;
       overflow: hidden; }
-    #mod_list .mod_item .info .title {
+    .mod_list .mod_item .info .title {
       height: 18px; }
-      #mod_list .mod_item .info .title a {
+      .mod_list .mod_item .info .title a {
         color: #333; }
-      #mod_list .mod_item .info .title a:hover {
+      .mod_list .mod_item .info .title a:hover {
         color: #cc0000;
         text-decoration: underline; }
-    #mod_list .mod_item .info .price {
+    .mod_list .mod_item .info .price {
       padding-top: 6px;
       font-weight: 700;
       color: #333;
       font-family: tahoma,verdana,arial,helvetica,sans-serif; }
-      #mod_list .mod_item .info .price s {
+      .mod_list .mod_item .info .price s {
         font-weight: 400;
         color: #666;
         padding-left: 5px; }
+.mod_list li:nth-of-type(5) {
+  border-bottom: 1px solid #e5e5e5; }
 
 .floor_2f .f_title .name a {
   background: url(../images/home_spirit.png) -260px -34px no-repeat; }
@@ -997,5 +1019,112 @@ ul, ol {
       margin-top: 3px; }
   .honer .footer-link:hover a {
     text-decoration: underline; }
+
+.fb_side {
+  width: 66px;
+  height: 268px;
+  position: fixed;
+  bottom: 20px;
+  right: 1px;
+  z-index: 99999; }
+  .fb_side ul li {
+    width: 65px;
+    height: 65px;
+    border: 1px #d41c50 solid;
+    background: #d41c50;
+    margin-top: 1px;
+    position: relative; }
+    .fb_side ul li a {
+      position: absolute;
+      display: inline-block;
+      width: 65px;
+      height: 65px;
+      left: 0;
+      top: 0; }
+      .fb_side ul li a i {
+        display: block;
+        width: 35px;
+        position: absolute;
+        height: 35px;
+        right: 14px;
+        top: 7px;
+        background: url(../images/fb-side.png) no-repeat; }
+      .fb_side ul li a span {
+        display: block;
+        position: absolute;
+        color: #fff;
+        bottom: 3px;
+        height: 20px;
+        width: 64px;
+        text-align: center;
+        line-height: 20px;
+        cursor: pointer;
+        left: 0; }
+  .fb_side ul .gotop {
+    visibility: hidden; }
+    .fb_side ul .gotop a i {
+      background-position: -104px 0; }
+  .fb_side ul .chat a i {
+    background-position: -34px 0; }
+  .fb_side ul .cart a i {
+    background-position: 3px 0; }
+  .fb_side ul .qrcode {
+    position: relative; }
+    .fb_side ul .qrcode a i {
+      background-position: -69px 0; }
+    .fb_side ul .qrcode a .hover_show {
+      position: absolute;
+      top: -190px;
+      left: -236px;
+      display: none; }
+  .fb_side ul .qrcode:hover .hover_show {
+    display: block; }
+  .fb_side ul .gotop:hover i {
+    background-position: -104px -35px; }
+  .fb_side ul .chat:hover i {
+    background-position: -34px -35px; }
+  .fb_side ul .cart:hover i {
+    background-position: 3px -35px; }
+  .fb_side ul .qrcode:hover i {
+    background-position: -69px -35px; }
+  .fb_side ul li:hover {
+    background: #fff;
+    border: #dddddd 1px solid; }
+  .fb_side ul li:hover span {
+    color: #d41c50; }
+
+.menu_lift {
+  width: 57px;
+  height: 160px;
+  position: fixed;
+  left: -26px;
+  top: 66px;
+  background: #fff;
+  z-index: 99999;
+  display: none; }
+  .menu_lift li a {
+    width: 57px;
+    height: 32px;
+    display: block;
+    overflow: hidden;
+    background: url(../images/home_spirit.png) no-repeat; }
+  .menu_lift li .lift_nav1 {
+    background-position: -79px -60px; }
+  .menu_lift li .lift_nav2 {
+    background-position: 0 -92px; }
+  .menu_lift li .lift_nav2:hover {
+    background-position: -164px -92px; }
+  .menu_lift li .lift_nav3 {
+    background-position: 0 -124px; }
+  .menu_lift li .lift_nav3:hover {
+    background-position: -164px -124px; }
+  .menu_lift li .lift_nav4 {
+    background-position: 0 -156px; }
+  .menu_lift li .lift_nav4:hover {
+    background-position: -164px -156px; }
+  .menu_lift li .lift_nav5 {
+    background-position: 0 -188px; }
+  .menu_lift li .lift_nav5:hover {
+    background-position: -164px -188px; }
 
 /*# sourceMappingURL=index.css.map */

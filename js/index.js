@@ -1,3 +1,5 @@
+$(function(){	
+	
 //轮播图
 function slider(){
 	this.oList = document.getElementById("list_pic");
@@ -135,32 +137,174 @@ showSlider("f_list_5f",".f_list_sort_5f",5);
 
 
 //商品分类二级菜单
+
 function twoMenu(){
-	var aWords = document.getElementsByClassName("cata_hot_words");
-	var aGroup = document.getElementsByClassName("cata_group");
-	var aSub = document.getElementsByClassName("cata_sub");
-	var aCover = document.getElementsByClassName("coverBorder");
+	var aWords = $(".cata_hot_words");
+	var aGroup = $(".cata_group");
+	var aSub = $(".cata_sub");
+	var aCover = $(".coverBorder");
 
 	for(let i = 0 ; i < aGroup.length ; i++){
-		
-		aGroup[i].onmouseover = function(){
-			this.style.boxShadow = "0 0 13px #666"
-			this.style.position = "relative";
-        	this.style.zIndex = "9999";
-        	aSub[i].style.display = "block";
-        	aWords[i].style.borderBottom = "none";
-        	aCover[i].style.display = "block";
-        	
-		}
-		aGroup[i].onmouseout = function(){
-			this.style.boxShadow = ""
-			this.style.position = "";
-    		this.style.zIndex = "";
-    		aSub[i].style.display = "none";
-    		aWords[i].style.borderBottom = "1px solid #e5e5e5";
-    		aCover[i].style.display = "none";
-			
-		}
+		$(aGroup[i]).mouseover(function(){
+			$(this).css({
+				boxShadow : "0 0 13px #666",
+				position : "relative",
+				zIndex : "9999"
+			})
+        	$(aSub[i]).css({
+        		display : "block"
+        	})
+        	$(aWords[i]).css({
+        		borderBottom : "none"
+        	})
+        	$(aCover[i]).css({
+        		display : "block"
+        	})
+		})
+		$(aGroup[i]).mouseout(function(){
+			$(this).css({
+				boxShadow : "",
+				position : "",
+				zIndex : ""
+			})
+    		$(aSub[i]).css({
+    			display : "none"
+    		})
+    		$(aWords[i]).css({
+    			borderBottom : "1px solid #e5e5e5"
+    		})
+    		$(aCover[i]).css({
+    			display : "none"
+    		})
+		})
 	}
 }
 twoMenu();
+
+
+
+//右侧快捷键
+function gotop(){
+	$topLi = $("#gotop");
+	$(window).scroll(function(){
+		if($(window).scrollTop() > 1030){
+			$topLi.css({
+				visibility: "visible"
+			})
+		}
+		if($(window).scrollTop() <= 1030){
+			$topLi.css({
+				visibility: "hidden"
+			})
+		}
+	});
+	$topLi.click(function(){
+		$(window).scrollTop(0);
+	})
+	
+}
+gotop();
+
+
+////拼接主页商品列表
+function goodsList(){
+	var aGoodList = $(".mod_list");
+	$.getJSON("data/goods.json",function(response,status,xhr){
+		for(var i = 0 ; i < response.length ; i++){
+		    var _good = response[i].obj;
+		 	for(var j = 0 ; j < _good.length ; j++){
+		 		var html = "";
+		 		html += '<li class="mod_item"><a class="pic" href="M_detail.html"><img src=" '+ _good[j].img + '"></a><div class="info"><span class="title"><a href="M_detail.html">'+ _good[j].title +'</a></span><span class="price">￥' + _good[j].price + '<s>￥' + _good[j].original + '</s></span></div></li>';
+		 		$(aGoodList[i]).append(html);
+		 	}
+		}
+	})
+}
+
+goodsList();
+
+
+
+
+//主页楼梯快速到达
+function liftMenu(){
+	var $liftNav = $(".menu_lift");
+	var aliftLi = $liftNav.children().children();
+	var afloor = $(".floor_1f");
+	var aliftBg = aliftLi.children();
+	$(window).scroll(function(){
+		if($(window).scrollTop() > 650){
+			$liftNav.css({
+				display:"block"
+			})
+		}
+		if($(window).scrollTop() <= 650){
+			$liftNav.css({
+				display:"none"
+			})
+		}
+	})
+	for(let i = 0 ; i < aliftLi.length ; i++){
+		$(aliftLi[i]).click(function(){
+			var str = afloor.eq(i).offset().top
+			$(window).scrollTop(str);
+		})
+	}
+}
+liftMenu();
+
+//判断是否登录
+function iflogin(){
+	var users = $.cookie("loginedUsers") ? $.cookie("loginedUsers") : "";
+	if(users != ""){
+		$(".user_name").css("display","block");
+		$(".user_exit").css("display","block");
+		$(".user").css("display","none");
+		$(".user_name a").append(users)
+	}
+	
+	
+	//将字符串转为对象
+	function convertStrToObj(str){
+		if(!str){ //如果是空字符串
+			return {}; //返回空对象
+		}
+		var users = str.split(":");
+		var obj = {};
+		for(var i = 0; i < users.length; i ++){
+			var userData = users[i].split(",");
+			obj[userData[0]] = userData[1];
+		}
+		return obj;
+	}
+	
+	//将对象转为字符串
+	function convertObjToStr(obj){
+		var str = "";
+		//遍历对象
+		for(var usn in obj){
+			var pwd = obj[usn];
+			if(str){
+				str += ":";
+			}
+			str += usn + ',' + pwd;
+		}
+		return str;
+	}
+}
+iflogin();
+
+//用户退出
+function userexit(){
+	$(".user_exit").click(function(){
+		$.cookie("loginedUsers",null,{expires:-1 , path:"/"});
+		$(".user_name").css("display","none");
+		$(".user_exit").css("display","none");
+		$(".user").css("display","block");
+	})
+}
+userexit();
+
+
+
+})

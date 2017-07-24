@@ -1,0 +1,219 @@
+@charset "UTF-8";
+body, p, li, ul, ol, h1, h2, h3, h4, h5, h6, fieldset, legend, dl, dt {
+  margin: 0;
+  padding: 0; }
+
+body, html {
+  height: 100%;
+  font-size: 12px;
+  font-family: "微软雅黑"; }
+
+img, iframe {
+  border: none; }
+
+a {
+  text-decoration: none;
+  color: #000; }
+
+ul, ol {
+  list-style: none; }
+
+.clear {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  clear: both; }
+
+.container {
+  width: 100%;
+  border-bottom: 3px solid #ed1c24; }
+  .container header {
+    width: 860px;
+    height: 83px;
+    margin: 0 auto;
+    overflow: hidden; }
+    .container header .logo {
+      width: 89px;
+      height: 50px;
+      display: block;
+      background: url(../images/mbblogo.png) no-repeat;
+      margin-top: 24px;
+      float: left; }
+    .container header .feedback {
+      float: right;
+      margin-top: 54px; }
+      .container header .feedback span {
+        float: left;
+        color: #888;
+        font-size: 11px; }
+      .container header .feedback .gofeedback {
+        float: left;
+        color: #888;
+        font-size: 12px;
+        margin-left: 5px; }
+      .container header .feedback .gofeedback:hover {
+        text-decoration: underline; }
+
+.main {
+  width: 860px;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 59px; }
+  .main .girl_pic {
+    float: left;
+    width: 495px;
+    height: 303px; }
+  .main .user_login {
+    width: 363px;
+    float: left;
+    background: #f5f5f5;
+    border: 1px solid #e1e1e1; }
+    .main .user_login h3 {
+      font-size: 12px;
+      color: #333333;
+      float: left;
+      padding: 28px 0 14px 27px; }
+      .main .user_login h3 span {
+        float: right;
+        font-size: 11px;
+        font-weight: normal;
+        padding-left: 80px;
+        color: #666; }
+        .main .user_login h3 span a {
+          color: #ff0000; }
+    .main .user_login .user_massage {
+      width: 308px;
+      float: left;
+      margin-left: 27px;
+      border-top: dashed 1px #e1e1e1; }
+      .main .user_login .user_massage .error1 {
+        height: 16px;
+        width: 100%;
+        padding: 9px 0 7px 0;
+        text-align: left;
+        background: url(../images/login_single_page.png) 0 10px no-repeat;
+        margin-top: 9px;
+        font-size: 12px;
+        color: #ff0000;
+        text-indent: 25px;
+        display: none; }
+      .main .user_login .user_massage .error2 {
+        height: 16px;
+        width: 100%;
+        padding: 9px 0;
+        text-align: left;
+        background: url(../images/login_single_page.png) 0 10px no-repeat;
+        font-size: 12px;
+        color: #ff0000;
+        text-indent: 25px;
+        margin: 0;
+        display: none; }
+      .main .user_login .user_massage .unamediv {
+        float: left;
+        width: 308px;
+        padding: 16px 0 15px 0; }
+        .main .user_login .user_massage .unamediv .uname {
+          width: 71px;
+          height: 28px;
+          float: left;
+          color: #666666;
+          font-size: 13px;
+          text-align: right;
+          line-height: 28px; }
+        .main .user_login .user_massage .unamediv .unametext {
+          height: 26px;
+          border: #e1e1e1 1px solid;
+          width: 170px; }
+      .main .user_login .user_massage .upwddiv {
+        float: left;
+        width: 308px;
+        padding-bottom: 15px; }
+        .main .user_login .user_massage .upwddiv .upwd {
+          width: 71px;
+          height: 28px;
+          float: left;
+          color: #666666;
+          font-size: 13px;
+          text-align: right;
+          line-height: 28px; }
+        .main .user_login .user_massage .upwddiv .upwdtext {
+          height: 26px;
+          border: #e1e1e1 1px solid;
+          width: 170px; }
+        .main .user_login .user_massage .upwddiv .forget {
+          line-height: 28px;
+          color: #fc4c4c;
+          font-size: 11px;
+          margin-left: 2px; }
+        .main .user_login .user_massage .upwddiv .forget:hover {
+          color: #cc0000;
+          text-decoration: underline; }
+      .main .user_login .user_massage .login_btn {
+        float: left;
+        border: none;
+        width: 96px;
+        height: 30px;
+        color: #fff;
+        font-size: 11px;
+        background: url(../images/login_single_page.png) no-repeat 73px -166px;
+        background-color: #f00;
+        cursor: pointer;
+        margin-left: 71px;
+        margin-bottom: 35px; }
+    .main .user_login .login_link {
+      float: left;
+      color: #666;
+      font-size: 11px;
+      margin-left: 17px;
+      padding-bottom: 14px; }
+    .main .user_login .login_quick {
+      width: 350px;
+      margin-left: 17px;
+      float: left;
+      padding-bottom: 22px; }
+      .main .user_login .login_quick a {
+        float: left;
+        height: 19px;
+        vertical-align: middle;
+        color: #999;
+        line-height: 19px; }
+      .main .user_login .login_quick a:hover {
+        text-decoration: underline; }
+      .main .user_login .login_quick span {
+        float: left;
+        color: #999;
+        font-size: 11px;
+        height: 19px;
+        line-height: 19px;
+        margin: 0 3px; }
+      .main .user_login .login_quick .q_zfb {
+        width: 73px;
+        margin-right: 7px;
+        background: url(../images/login_single_page.png) 0 -42px no-repeat; }
+      .main .user_login .login_quick .q_qq {
+        width: 22px;
+        padding-left: 18px;
+        background: url(../images/qq.png) 2px 3px no-repeat;
+        background-size: 14px 14px; }
+      .main .user_login .login_quick .q_weibo {
+        width: 52px;
+        padding: 0 0 0 20px;
+        background: url(../images/login_single_page.png) no-repeat 0 -78px; }
+      .main .user_login .login_quick .q_cm {
+        width: 50px;
+        padding: 0 0 0 15px;
+        background: url(../images/login_single_page.png) no-repeat 0 -110px; }
+      .main .user_login .login_quick .q_weixin {
+        width: 35px;
+        padding: 0 0 0 18px;
+        background: url(../images/login_single_page.png) no-repeat 0 -208px; }
+
+.copyright {
+  width: 750px;
+  margin: 0 auto;
+  color: #666;
+  font-size: 11px;
+  overflow: hidden;
+  padding-top: 86px; }
+
+/*# sourceMappingURL=login.css.map */

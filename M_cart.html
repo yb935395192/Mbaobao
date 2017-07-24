@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/cart.css"/>
+</head>
+<body>
+<div class="container">
+	<header>
+		<div class="logo">
+			<img src="images/logo.png" alt="" />
+		</div>
+		<div class="cart_title">
+			<p class="title_text">购物车</p>
+			<p class="wel"><span class="username">15069970872</span>您好，欢迎来到麦包包！</p>
+		</div>
+		<div class="cart_step">
+			<div class="step_icon"></div>
+			<ul>
+				<li><em class="red">1.确认采购商品</em></li>
+				<li>2.填写收货信息</li>
+				<li>3.支付</li>
+				<li>4.支付成功</li>
+			</ul>
+		</div>
+	</header>
+</div>
+<div class="main_bg">
+	<div class="cart_main">
+		<div class="cart_notice">
+			<div class="notice_wrap">
+				<strong class="notice_title">温馨提示&nbsp;:</strong>
+				<div class="noctice_body"> 加入购物车的商品无法为您保留库存，请及时下单购买，商品价格以订单提交时的价格为准。</div>
+			</div>
+			<span class="arrow_b"></span>
+		</div>
+		<div class="cart_wrapper">
+			<div class="cart_selected">
+				<div class="selected_header">
+					<ul class="selected_header_list">
+						<li>商品名称</li>
+						<li>单价</li>
+						<li>数量</li>
+						<li>小计</li>
+						<li>操作</li>
+					</ul>
+				</div>
+				<div class="selected_main">
+					<ul class="goodInfo">
+						<li><a href="M_detail.html"><img src="images/good1/01.jpg" alt="" /></a></li>
+						<li>
+							<p class="good_name"><a href="M_detail.html">[mbaobao]优雅双盖系列手提单肩斜挎包</a></p>
+							<p class="good_sku">9132636002</p>
+						</li>
+						<li>
+							<span class="good_price">¥&nbsp;199.00</span>
+						</li>
+						<li>
+							<a href="javascript:;" class="minus"></a>
+							<input type="text" class="count" value="1">
+							<a href="javascript:;" class="plus"></a>
+						</li>
+						<li>
+							<span class="good_total">¥955.00</span>
+						</li>
+						<li>
+							<a href="javascript:;" class="good_remove">删除</a>
+						</li>
+					</ul>
+					<div class="cart_footer">
+						<div class="coupon">
+							<div class="coupon_title">优惠券/现金券&nbsp;:</div>
+							<div class="coupon_input">
+								<input type="text" class="coupon_text">
+								<input type="button" class="coupon_btn" value="使用"/>
+							</div>
+							<a href="javascript:;" class="coupon_rules">使用优惠券/现金券使用规则</a>
+						</div>
+						<div class="maidou">
+							<div class="maidou_title">麦豆&nbsp;:</div>
+							<div class="maidou_input">
+								<input type="text" class="maidou_text">
+								<span class="maidou_count">
+									X&nbsp;10&nbsp;=
+									<strong class="red">
+										<span class="maidou_count_result">0</span>
+										个麦豆
+									</strong>
+									
+								</span>
+							</div>
+						</div>
+						<div class="maidou_tip">
+							<div class="maidou_notice">
+								<div class="notice_wrap">您有麦豆 <strong class="red">0</strong> 个，请输入想使用的麦豆数（10个起用，只可能使用10的整倍数），不使用请填0</div>
+								<span class="arrow_t"></span>
+							</div>
+						</div>
+						<div class="receipt">
+							<table>
+                            	<tbody>
+	                                <tr>
+	                                    <th>商品件数：</th>
+	                                    <td id="countsnub">5件</td>
+	                                </tr>
+	                                <tr>
+	                                    <th>商品总金额(不含运费)：</th>
+	                                    <td id="countprices">￥995.00</td>
+	                                </tr>
+	                                <tr id="ptyhactive" style="display:none;">
+	                                    <th class="red">优惠：</th>
+	                                    <td class="red" id="activeamount"></td>
+	                                </tr>
+	                                <tr>
+	                                    <th>麦豆抵扣：</th>
+	                                    <td id="mddk">-￥0.00</td>
+	                                </tr>
+	                                <tr>
+	                                    <th>运费：</th>
+	                                    <td id="yfprice">￥0.00</td>
+	                                </tr>
+	                                <tr>
+	                                    <th colspan="2">
+	                                        <div class="freight-tip">
+	                                            <p>您可以享受免运费服务</p>
+	                                        </div>
+	                                    </th>
+	                                </tr>
+	                                <tr>
+                                    	<th colspan="2">
+                                        	<div class="total-price">
+                                            	应付金额：<strong class="price" id="zgprice">￥995.00</strong>
+                                        	</div>
+                                    	</th>
+                                	</tr>
+                           	 	</tbody>
+                        	</table>
+						</div>
+						<div class="bottom_btn">
+							<a href="javascript:;" class="go_checked"></a>
+						</div>
+					</div>		
+				</div>
+ 			</div>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="strengths">
+		<ul>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+		</ul>
+	</div>
+</footer>
+<div class="copy_right">
+	©2007-2012 Mbaobao All Rights Reserved. 嘉兴市麦宝科技信息有限公司 版权所有，禁止非法复制 经营许可证编号：浙B2-20100425
+</div>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/jquery.cookie.js"></script>
+</html>

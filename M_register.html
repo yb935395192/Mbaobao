@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link href="favicon.ico" rel="shortcut icon">
+	<link rel="stylesheet" type="text/css" href="css/commonheader960.css"/>
+	<link rel="stylesheet" type="text/css" href="css/register.css"/>
+</head>
+<body>
+<div class="containerH"></div>
+<div class="logo"></div>
+<div class="containerM"></div>
+<div class="reg_bg">
+	<div class="reg_main">
+		<div class="reg_title">
+			<h3>欢迎注册麦包包网站</h3>
+		</div>
+		<div class="reg_massage">
+			<form>
+				<div class="user_phone">
+					<span>手机号码&nbsp;:</span>
+					<input type="text" class="phone_num"/>
+					<div id="tip1" class="tip">请填写正确的11位手机号码并进行验证</div>
+					<div class="error_phone"><p></p></div>
+					<div class="success_phone"></div>
+				</div>
+				<div class="user_pwd">
+					<span>设置密码&nbsp;:</span>
+					<input type="password" class="pwd_num"/>
+					<div id="tip2" class="tip">请填写6-20位密码，可以使用字母和数字的组合</div>
+					<div class="error_pwd"><p></p></div>
+					<div class="success_pwd"></div>
+				</div>
+				<div  class="user_pwd_con">
+					<span>确认密码&nbsp;:</span>
+					<input type="password" class="pwd_con_num"/>
+					<div id="tip3" class="tip">请填写6-20位密码，可以使用字母和数字的组合</div>
+					<div class="error_pwd_con"><p></p></div>
+					<div class="success_pwd_con"></div>
+				</div>
+				<div class="user_VC">
+					<span>验证码&nbsp;:</span>
+					<a class="send_VC" href="javascript:">免费获取短信验证码<i class="arrow"></i></a>
+					<input type="text" class="user_VC_num"/>
+					<div id="tip4" class="tip">请填写短信验证码</div>
+					<div class="VC_sended">
+						<input type="text" class="new_user_VC_num"/>
+						<div class="VC_img"></div>
+						<p>换一张？</p>
+						<button class="con_VC">确认发送</button>
+					</div>
+					<div class="error_VC"></div>
+				</div>
+				<input class="reg_submit" type="button" value="提交注册">
+				<div class="user_agree">
+					<input class="gou" type="checkbox" name="" id="" value="" />
+					我已阅读并同意<a href="#">《麦包包用户服务协议》</a> 
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+<script src="js/move.js"></script>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/register.js"></script>
+<script src="js/jquery.cookie.js"></script>
+</html>

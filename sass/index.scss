@@ -14,6 +14,19 @@ $spiritV2:url(../images/H_top_v2.png);
 		height:34px;
 		margin:0 auto;
 		font-family: $headfamily;
+		.user_name{
+		    display: none;
+		    font-size: $headfont;
+            line-height: 34px;
+            float: left;
+            margin-right: 5px;
+            a{
+                color: #808080;
+            }
+            a:hover{
+                color: #d41c4f;
+            }
+		}
 		.wel{
 		    font-size: $headfont;
 		    color:#333;
@@ -26,6 +39,7 @@ $spiritV2:url(../images/H_top_v2.png);
 		    float: left;
 		    margin-left: 8px;
 		    color: #333;
+		    display: block;
 		    span{
 		        margin: 4px;
 		        a{
@@ -36,6 +50,15 @@ $spiritV2:url(../images/H_top_v2.png);
                 }
 		    }
 		}
+		.user_exit{
+		    line-height: 34px;
+		    cursor: pointer;
+		    color: #808080;
+		    margin-left:6px;
+		    float: left;
+		    display: none;
+		}
+	   
 		.userpanel{
 		    float: right;
 		    margin-top: 5px;
@@ -313,12 +336,14 @@ $spiritV2:url(../images/H_top_v2.png);
             height: 35px;
             width: 231px;
             text-align: center;
-            color: #fff;
             line-height: 35px;
             cursor: pointer;
             font-size: 14px;
             background: #ac143f;
             position: relative;
+            a{
+                color: #fff;
+            }
         }
         .nav_list{
             position:absolute;
@@ -503,6 +528,7 @@ $spiritV2:url(../images/H_top_v2.png);
                             line-height: 190%;
                             display: inline-block;
                             zoom: 1;
+                            margin: 0;
                             padding: 5px 0;
                             a{
                                 white-space: nowrap;
@@ -861,7 +887,7 @@ $spiritV2:url(../images/H_top_v2.png);
         }
     }
 }
-#mod_list{
+.mod_list{
     .mod_item{
         width: 237px;
         float: left;
@@ -908,6 +934,9 @@ $spiritV2:url(../images/H_top_v2.png);
                 }
             }
         }
+    }
+    li:nth-of-type(5){
+        border-bottom: 1px solid #e5e5e5;
     }
 }
 .floor_2f{
@@ -1254,4 +1283,161 @@ $spiritV2:url(../images/H_top_v2.png);
     .footer-link:hover a{
         text-decoration: underline;
     }
+}
+
+.fb_side{
+    width: 66px;
+    height: 268px;
+    position: fixed;
+    bottom: 20px;
+    right: 1px;
+    z-index: 99999;
+    ul{
+        li{
+            width: 65px;
+            height: 65px;
+            border:1px #d41c50 solid;
+            background: #d41c50;
+            margin-top: 1px;
+            position: relative;
+            a{
+                position: absolute;
+                display: inline-block;
+                width: 65px;
+                height: 65px;
+                left: 0;
+                top: 0;  
+                i{
+        
+                    display: block;
+                    width: 35px;
+                    position: absolute;
+                    height: 35px;
+                    right: 14px;
+                    top: 7px;
+                    background: url(../images/fb-side.png) no-repeat;
+                }
+                
+                span{
+                    display: block;
+                    position: absolute;
+                    color: #fff;
+                    bottom: 3px;
+                    height: 20px;
+                    width: 64px;
+                    text-align: center;
+                    line-height: 20px;
+                    cursor: pointer;
+                    left: 0;
+                }
+            }
+        }
+        .gotop{
+            visibility: hidden;
+           
+            a{
+                i{
+                    background-position: -104px 0;
+                }
+            }
+        }
+        .chat{
+            a{
+                i{
+                    background-position: -34px 0;
+                }
+            }
+        }
+        .cart{
+            a{
+                i{
+                    background-position: 3px 0;
+                }
+            }
+        }
+        .qrcode{
+            position: relative;
+            a{
+                i{
+                    background-position: -69px 0;
+                }
+                .hover_show{
+                    position: absolute;
+                    top: -190px;
+                    left: -236px;
+                    display: none;
+                }
+            }
+        }
+        .qrcode:hover .hover_show{
+            display: block;
+        }
+        .gotop:hover i{
+            background-position: -104px -35px;
+        }
+        .chat:hover i{           
+            background-position: -34px -35px;
+        }
+        .cart:hover i{
+            background-position: 3px -35px;
+        }
+        .qrcode:hover i{
+            background-position: -69px -35px;
+        }
+        li:hover{
+            background: #fff;
+            border: #dddddd 1px solid; 
+        }
+        li:hover span{
+            color: #d41c50;
+        }
+    }
+}
+
+
+.menu_lift{
+    width: 57px;
+    height: 160px;
+    position: fixed;
+    left: -26px;
+    top: 66px;
+    background: #fff;
+    z-index: 99999;
+    display: none;
+        li{
+            a{
+                width: 57px;
+                height: 32px;
+                display: block;
+                overflow: hidden;
+                background: url(../images/home_spirit.png) no-repeat;
+            }
+            .lift_nav1{
+                background-position:  -79px -60px;
+            }
+            .lift_nav2{
+                background-position:  0 -92px;
+            }
+            .lift_nav2:hover{
+                background-position:  -164px -92px;
+            }
+            .lift_nav3{
+                background-position:  0 -124px;
+            }
+            .lift_nav3:hover{
+                background-position:  -164px -124px;
+            }
+            .lift_nav4{
+                background-position:  0 -156px;
+            }
+            .lift_nav4:hover{
+                background-position:  -164px -156px;
+            }
+            .lift_nav5{
+                background-position:  0 -188px;
+            }
+            .lift_nav5:hover{
+                background-position: -164px -188px;
+            }
+        }
 }
