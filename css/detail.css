@@ -58,9 +58,7 @@ ul, ol {
         width: 480px;
         height: 480px;
         float: left;
-        background: url(../images/good1/01.jpg) no-repeat;
-        position: relative;
-        background-size: 480px 480px; }
+        position: relative; }
         .item_wrap .item_detail .detail_left .Big_img .position_box {
           width: 214px;
           height: 215px;

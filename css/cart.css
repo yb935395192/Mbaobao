@@ -145,78 +145,97 @@ header {
       .cart_main .cart_wrapper .cart_selected .selected_main {
         width: 100%;
         float: left; }
-        .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo {
+        .cart_main .cart_wrapper .cart_selected .selected_main .nogoods {
           width: 100%;
-          height: 103px;
+          height: 37px;
           float: left;
-          position: relative;
-          border-bottom: 1px dashed #efefef; }
-          .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li {
-            position: absolute; }
-          .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(1) {
-            width: 80px;
-            height: 80px;
-            top: 5px;
-            left: 10px; }
-            .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(1) img {
+          border-bottom: 1px dashed #efefef;
+          display: block;
+          font-size: 17px;
+          text-align: center;
+          line-height: 37px;
+          color: #666; }
+          .cart_main .cart_wrapper .cart_selected .selected_main .nogoods a {
+            color: #666; }
+          .cart_main .cart_wrapper .cart_selected .selected_main .nogoods a:hover {
+            color: #ee1c22; }
+        .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list {
+          width: 100%;
+          float: left;
+          overflow: hidden;
+          display: none; }
+          .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo {
+            width: 100%;
+            height: 103px;
+            float: left;
+            position: relative;
+            border-bottom: 1px dashed #efefef; }
+            .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li {
+              position: absolute; }
+            .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(1) {
               width: 80px;
-              height: 80px; }
-          .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(2) {
-            top: 32px;
-            left: 103px; }
-            .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(2) p {
-              font-weight: 400;
-              display: block;
-              text-align: left;
-              font-size: 11px;
-              color: #666; }
-            .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(2) .good_name {
-              margin-bottom: 2px; }
-              .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(2) .good_name a {
+              height: 80px;
+              top: 5px;
+              left: 10px; }
+              .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(1) img {
+                width: 80px;
+                height: 80px; }
+            .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(2) {
+              top: 32px;
+              left: 103px; }
+              .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(2) p {
+                font-weight: 400;
+                display: block;
+                text-align: left;
+                font-size: 11px;
                 color: #666; }
-          .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(3) {
-            left: 582px;
-            top: 40px; }
-            .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(3) .good_price {
-              font-size: 11px;
-              color: #666; }
-          .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(4) {
-            width: 70px;
-            height: 20;
-            top: 37px;
-            right: 184px; }
-            .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(4) .minus, .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(4) .plus {
-              float: left;
-              width: 11px;
-              height: 11px;
-              margin-top: 5px; }
-            .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(4) .minus {
-              background: url(../images/cart_minus.png); }
-            .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(4) .plus {
-              background: url(../images/cart_plus.png); }
-            .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(4) .count {
-              float: left;
-              width: 30px;
-              height: 16px;
-              border: #cccccc 1px solid;
-              line-height: 18px;
-              text-align: center;
-              margin: 0 7px; }
-          .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(5) {
-            left: 800px;
-            top: 39px; }
-            .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(5) .good_total {
-              font-weight: 700;
-              color: #ed1c22;
-              font-size: 11px; }
-          .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(6) {
-            right: 15px;
-            top: 39px; }
-            .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(6) .good_remove {
-              color: #666;
-              font-size: 11px; }
-            .cart_main .cart_wrapper .cart_selected .selected_main .goodInfo li:nth-of-type(6) .good_remove:hover {
-              color: #ed1c22; }
+              .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(2) .good_name {
+                margin-bottom: 2px; }
+                .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(2) .good_name a {
+                  color: #666; }
+            .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(3) {
+              left: 582px;
+              top: 40px; }
+              .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(3) .good_price {
+                font-size: 11px;
+                color: #666; }
+            .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(4) {
+              width: 70px;
+              height: 20;
+              top: 37px;
+              right: 184px; }
+              .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(4) .minus, .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(4) .plus {
+                float: left;
+                width: 11px;
+                height: 11px;
+                margin-top: 5px; }
+              .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(4) .minus {
+                background: url(../images/cart_minus.png); }
+              .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(4) .plus {
+                background: url(../images/cart_plus.png); }
+              .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(4) .count {
+                float: left;
+                width: 30px;
+                height: 16px;
+                border: #cccccc 1px solid;
+                line-height: 18px;
+                text-align: center;
+                margin: 0 7px; }
+            .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(5) {
+              left: 800px;
+              top: 39px; }
+              .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(5) .good_total {
+                font-weight: 700;
+                color: #ed1c22;
+                font-size: 11px; }
+            .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(6) {
+              right: 15px;
+              top: 39px; }
+              .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(6) .good_remove {
+                color: #666;
+                font-size: 11px; }
+              .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(6) .good_remove:hover {
+                color: #ed1c22; }
         .cart_main .cart_wrapper .cart_selected .selected_main .cart_footer {
           width: 100%;
           float: left;

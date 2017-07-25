@@ -113,7 +113,7 @@ $spiritV2:url(../images/H_top_v2.png);
 		            position: absolute;
 		            left: -110px;
 		            top: 27px;
-		            border: 1px #d3d3d3 solid;
+		            border: 1px #d3d3d3 solid;    
 		            background: #fff;
 		            display:none;
 		            box-shadow: 2px 2px 5px #ddd;
@@ -122,6 +122,25 @@ $spiritV2:url(../images/H_top_v2.png);
                         font-size: 11px;
                         color: #888888;
                         padding: 15px;
+                        display: none;
+                    }
+                    .goodsInCart{
+                        width: 100%;
+                        overflow: hidden;
+                        float: left;
+                        .goodInCart_ul{
+                            width: 100%;
+                            float: left;
+                            position: relative;
+                            li{
+                                position:absolute;
+                            }
+                            .gIC_pic{
+                                width: 50px;
+                                height: 50px;
+                                border: 1px #d6d6d6 solid;
+                            }
+                        }
                     }
 		        }
 		        .cover{

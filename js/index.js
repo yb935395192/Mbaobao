@@ -1,5 +1,7 @@
 $(function(){	
 	
+	
+loadCart();
 //轮播图
 function slider(){
 	this.oList = document.getElementById("list_pic");
@@ -214,16 +216,22 @@ function goodsList(){
 		    var _good = response[i].obj;
 		 	for(var j = 0 ; j < _good.length ; j++){
 		 		var html = "";
-		 		html += '<li class="mod_item"><a class="pic" href="M_detail.html"><img src=" '+ _good[j].img + '"></a><div class="info"><span class="title"><a href="M_detail.html">'+ _good[j].title +'</a></span><span class="price">￥' + _good[j].price + '<s>￥' + _good[j].original + '</s></span></div></li>';
+		 		html+= '<li class="mod_item"><a class="pic" href="M_detail.html"><img src=" '+ _good[j].img + '"></a><div class="info"><span class="title"><a href="javascript:;" data-good-id="' + _good[j].id + '" >'+ _good[j].title +'</a></span><span class="price">￥' + _good[j].price + '<s>￥' + _good[j].original + '</s></span></div></li>';
 		 		$(aGoodList[i]).append(html);
 		 	}
 		}
+			
+		for(let i = 0 ; i < $(".mod_item .info a").length ; i++){
+			$(".mod_item .info a").eq(i).click(function(){
+	 			var str = $(this).attr("data-good-id")
+	 			$.cookie("dataId",str);
+	 			window.location.href = "M_detail.html"
+			})
+		}
 	})
+
 }
-
 goodsList();
-
-
 
 
 //主页楼梯快速到达
@@ -306,5 +314,49 @@ function userexit(){
 userexit();
 
 
+//页面加载购物车
+function loadCart(){
+	var cartStr = $.cookie("cart") ? $.cookie("cart") : "";
+	var cartObj = convertCartStrToObj(cartStr);
+	//获取到购物车中所有商品的数量
+	var total = 0;
+	for(var id in cartObj){
+		total += cartObj[id].num;
+	}
+	$(".mycart b").html(total);
+}
+
+
+
+
+function convertCartStrToObj(cartStr) {
+	if(!cartStr) {
+		return {};
+	}
+	var goods = cartStr.split(":");
+	var obj = {};
+	for(var i = 0; i < goods.length; i++) {
+		var data = goods[i].split(",");
+		obj[data[0]] = {
+			name: data[1],
+			price: parseFloat(data[2]),
+			num: parseInt(data[3]),
+			src: data[4]
+		}
+	}
+	return obj;
+}
+
+
+function convertObjToCartStr(obj) {
+	var cartStr = "";
+	for(var id in obj) {
+		if(cartStr) {
+			cartStr += ":";
+		}
+		cartStr += id + "," + obj[id].name + "," + obj[id].price + "," + obj[id].num + "," + obj[id].src;
+	}
+	return cartStr;
+}
 
 })
