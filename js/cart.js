@@ -28,6 +28,7 @@ $(function(){
 			delete cartObj[id];
 			$.cookie('cart', convertObjToCartStr(cartObj), {expires: 7,path: "/"});
 			shoppinglist();
+			
 		})
 		
 		
@@ -97,7 +98,6 @@ $(function(){
 				id = $(".goodInfo").eq(j).attr("data-good-id");
 				totalprice += (cartObj[id].num * cartObj[id].price);
 				totalnum += cartObj[id].num;
-			
 			}
 			$("#countprices").html("¥"+ totalprice +".00");
 			$("#countsnub").html(totalnum + "件");

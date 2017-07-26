@@ -4,10 +4,108 @@ $(".containerH").load("http://localhost/Mbaobao/data/commonheader.html header",f
 	userexit();
 	iflogin();
 	loadCart();
+	//页面加载购物车
+	function loadCart(){
+		var cartStr = $.cookie("cart") ? $.cookie("cart") : "";
+		var cartObj = convertCartStrToObj(cartStr);
+		if(!cartStr){
+			$("#cart p").css("display","block");
+			$(".goodsInCart").css("display","none");
+			$(".InCartList").css("display","none");
+			$(".mycart b").html("0");
+		}else{
+			$("#cart p").css("display","none");
+			$(".goodsInCart").css("display","block");
+			$(".InCartList").css("display","block");
+			var InCartnum = 0;
+			for(var id in cartObj){
+				InCartnum += cartObj[id].num;
+				var InCart = cartObj[id];
+				var str = '<ul class="gIC_ul" data-good-id="'+ id  +'"><li class="gIC_pic"><a href="M_detail.html"><img src="'+ InCart.src +'" alt="" /></a></li><li class="gIC_name"><a href="M_detail.html">'+ InCart.name +'</a></li><li class="gIC_num">'+ InCart.num +'</li><li class="gIC_price">¥ ' + InCart.price + '</li><li class="gIC_remove"><a class="gIC_remove_a" href="javascript:;">[删除]</a></li></ul>';
+				$(".goodsInCart").append(str);		
+			}
+			$(".mycart b").html(InCartnum);
+			
+			function shoppinglist(){
+				var cartStr = $.cookie("cart") ? $.cookie("cart") : "";
+				var cartObj = convertCartStrToObj(cartStr);
+				var totalprice = 0;
+				var totalnum = 0;
+				var id = 0;
+				for(let j = 0 ; j < $(".gIC_ul").length; j++){
+					id = $(".gIC_ul").eq(j).attr("data-good-id");
+					totalprice += (cartObj[id].num * cartObj[id].price);
+					totalnum += cartObj[id].num;
+				}
+				$(".ICL_num").html(totalnum);
+				$(".ICL_total").html("<f>¥</f>" + totalprice)
+			}
+			shoppinglist();
+			
+			//删除按钮
+			$(".gIC_remove_a").click(function(){
+				var id = $(this).parents(".gIC_ul").remove().attr("data-good-id");
+				var cartStr = $.cookie("cart") ? $.cookie("cart") : "";
+				var cartObj = convertCartStrToObj(cartStr);
+				delete cartObj[id];
+				$.cookie('cart', convertObjToCartStr(cartObj), {expires: 7,path: "/"});
+				shoppinglist();
+				reloadCart();
+			})
+		}
+	}
+	
+	function reloadCart(){
+		var cartStr = $.cookie("cart") ? $.cookie("cart") : "";
+			var cartObj = convertCartStrToObj(cartStr);
+			//获取到购物车中所有商品的数量
+			var InCartnum = 0;
+			for(var id in cartObj){
+				InCartnum += cartObj[id].num;
+			}
+			$(".mycart b").html(InCartnum);
+			if(!cartStr){
+				$("#cart p").css("display","block");
+				$(".goodsInCart").css("display","none");
+				$(".InCartList").css("display","none");
+				$(".mycart b").html("0");
+			}
+	}
+	
+	function convertCartStrToObj(cartStr) {
+		if(!cartStr) {
+			return {};
+		}
+		var goods = cartStr.split(":");
+		var obj = {};
+		for(var i = 0; i < goods.length; i++) {
+			var data = goods[i].split(",");
+			obj[data[0]] = {
+				name: data[1],
+				price: parseFloat(data[2]),
+				num: parseInt(data[3]),
+				src: data[4]
+			}
+		}
+		return obj;
+	}
+	
+	
+	function convertObjToCartStr(obj) {
+		var cartStr = "";
+		for(var id in obj) {
+			if(cartStr) {
+				cartStr += ":";
+			}
+			cartStr += id + "," + obj[id].name + "," + obj[id].price + "," + obj[id].num + "," + obj[id].src;
+		}
+		return cartStr;
+	}
 });
 $(".logo").load("http://localhost/Mbaobao/data/commonheader.html .logo"); 
 $(".containerM").load("http://localhost/Mbaobao/data/commonheader.html .containerM",function(){
 	twoMenu();
+	$(".nav_row").children().eq(0).children().eq(0).removeClass("defaultN");
 });
 
 //加载尾部
@@ -18,7 +116,7 @@ $(".fb_side").load("http://localhost/Mbaobao/data/commonheader.html .fb_side",fu
 	gotop();
 });
 
-//
+//二级菜单
 function twoMenu(){
 	
 	var aWords = $(".cata_hot_words");
@@ -123,7 +221,6 @@ function gotop(){
 	$topLi.click(function(){
 		$(window).scrollTop(0);
 	})
-	
 }
 
 
@@ -179,41 +276,210 @@ function userexit(){
 	})
 }
 
-
-var dataId = $.cookie("dataId") ? $.cookie("dataId") : "";
-$.getJSON("data/goods.json",function(response,status,xhr){
-	for(var i = 0 ; i < response.length ; i++){
-	    var _good = response[i].obj;
-	 	for(let j = 0 ; j < _good.length ; j++){
-			if(_good[j].id == dataId){
-				var index = j;
-				var goodname  = _good[index].title;
-				$(".location span").html(goodname);
-				$(".detail_title").html(goodname);
-				var goodprice = _good[index].price;
-				$(".price_num").html(goodprice + ".00");
-				var goodoriginal = _good[index].original;	
-				$(".original_num").html(goodoriginal + ".00");
-				for(let m = 0 ; m < _good[index].colorImg.length ; m++){
-					var html = "";
-					html += '<li><img src="'+ _good[index].colorImg[m].colorurl +'"></li>'
-					$(".colorlist").append(html);
-				}
-				for(let k = 0 ; k < _good[index].maxImg.length ; k++){
-					var html1 = "";
-					html1 += '<li><img src="'+ _good[index].maxImg[k].maxurl +'" alt="" /></li>'
-					$(".simglist").append(html1)
-				}
-				$(".simglist").children().eq(0).addClass("active");
-				for(let l = 0 ; l < _good[index].detailImg.length ; l++){
-					var html2 = "";
-					html2 += '<img src="'+ _good[index].detailImg[l].deurl +'" />'
-					$(".info_img").append(html2);
-				}
+//拼接商品信息
+function goodmassage(){
+	var dataId = $.cookie("dataId") ? $.cookie("dataId") : "";
+	if(dataId){
+		$.getJSON("data/goods.json",function(response,status,xhr){
+			for(var i = 0 ; i < response.length ; i++){
+			    var _good = response[i].obj;
+			 	for(let j = 0 ; j < _good.length ; j++){
+					if(_good[j].id == dataId){
+						var index = j;
+						var goodname  = _good[index].title;
+						$(".location span").html(goodname);
+						$(".detail_title").html(goodname);
+						var goodprice = _good[index].price;
+						$(".price_num").html(goodprice + ".00");
+						var goodoriginal = _good[index].original;	
+						$(".original_num").html(goodoriginal + ".00");
+						for(let m = 0 ; m < _good[index].colorImg.length ; m++){
+							var html = "";
+							html += '<li><img src="'+ _good[index].colorImg[m].colorurl +'"></li>'
+							$(".colorlist").append(html);
+						}
+						for(let k = 0 ; k < _good[index].maxImg.length ; k++){
+							var html1 = "";
+							html1 += '<li><img src="'+ _good[index].maxImg[k].maxurl +'" alt="" /></li>'
+							$(".simglist").append(html1)
+						}
+						$(".simglist").children().eq(0).addClass("active");
+						for(let l = 0 ; l < _good[index].detailImg.length ; l++){
+							var html2 = "";
+							html2 += '<img src="'+ _good[index].detailImg[l].deurl +'" />'
+							$(".info_img").append(html2);
+						}
+					}
+			 	}
 			}
-	 	}
+			//鼠标滑过图片显示在主窗口
+			function magnifier(id){
+				var index = 0;
+				var aSimglist = $(".simglist").children();
+				console.log($(".simglist").children())
+				 $(".Big_img").css({
+				 	background : "url(images/detailpic/good"+ id +"/01.jpg) no-repeat",
+				 	backgroundSize: "480px 480px"
+				 })
+				for(let i = 0 ; i < aSimglist.length ; i++){
+					aSimglist.eq(i).mouseover(function(){
+						console.log(1)
+						for(var j = 0 ; j < aSimglist.length ; j++){
+							aSimglist.eq(j).removeClass("active");
+						}
+						aSimglist.eq(i).addClass("active");
+						$(".Big_img").css({
+							background:"url(images/detailpic/good"+ id +"/0"+ (i + 1) +".jpg) no-repeat",
+							backgroundSize: "480px 480px"
+						})
+						index = i;
+					})
+				}
+				$(".Big_img").mouseover(function(){
+					$(".position_box").css("display","block");
+					$(".big_box").css("display","block");
+				})
+				$(".Big_img").mouseout(function(){
+					$(".position_box").css("display","none")
+					$(".big_box").css("display","none");
+				})
+				$(".Big_img").mousemove(function(e){
+					var sImg = "";
+					sImg = '<img src="images/detailpic/good' + id +'/0'+ (index + 1) +'.jpg">';
+					$(".big_box_all").html(sImg);
+					var mouseX = e.pageX;
+					var mouseY = e.pageY;
+					var left = mouseX - $(".Big_img").offset().left - $(".position_box").width() / 2;
+					var top = mouseY - $(".Big_img").offset().top - $(".position_box").height() / 2
+					left = left <= 0 ? 0 : left;
+					top = top <= 0 ? 0  :top;
+					if(left >= $(".Big_img").width() - $(".position_box").width()){
+						left = $(".Big_img").width() - $(".position_box").width();
+					}
+					if(top >= $(".Big_img").height() - $(".position_box").height()){
+						top = $(".Big_img").height() - $(".position_box").height();
+					}
+					var leftProprtion = left / ($(".Big_img").width() - $(".position_box").width());
+			
+					var topProprtion = top / ($(".Big_img").height() - $(".position_box").height());
+			
+					$(".big_box_all").css({
+						left: -($(".big_box_all").width() - $(".big_box").width())* leftProprtion,
+						top : -($(".big_box_all").height() - $(".big_box").height()) * topProprtion
+					})
+					
+					$(".position_box").css({
+						left : left,
+						top : top
+					})
+					
+				})
+			};
+			magnifier(dataId);
+		})
+		
 	}
-	
+	var listId = $.cookie("listId") ? $.cookie("listId") : "";
+	if(listId){
+		$.getJSON("data/list.json",function(response,status,xhr){
+			var _good = []
+			for(let i = 0 ; i < response.length ; i++){	
+				_good.push(response[i])
+			}
+		  	for(let j = 0 ; j < _good.length ; j++){
+		    	if(_good[j].id == listId){
+		    		var index = j;
+		    		var goodname  = _good[index].info;
+					$(".location span").html(goodname);
+					$(".detail_title").html(goodname);
+					var goodprice = _good[index].price1;
+					$(".price_num").html(goodprice + ".00");
+					var goodoriginal = _good[index].price2;	
+					$(".original_num").html(goodoriginal + ".00");
+					for(let m = 0 ; m < _good[index].colorImg.length ; m++){
+						var html = "";
+						html += '<li><img src="'+ _good[index].colorImg[m].colorurl +'"></li>'
+						$(".colorlist").append(html);
+					}
+					for(let k = 0 ; k < _good[index].maxImg.length ; k++){
+						var html1 = "";
+						html1 += '<li><img src="'+ _good[index].maxImg[k].maxurl +'" alt="" /></li>'
+						$(".simglist").append(html1)
+					}
+					$(".simglist").children().eq(0).addClass("active");
+					for(let l = 0 ; l < _good[index].detailImg.length ; l++){
+						var html2 = "";
+						html2 += '<img src="'+ _good[index].detailImg[l].deurl +'" />'
+						$(".info_img").append(html2);
+					}
+		    	}
+		    }
+		  	//鼠标滑过图片显示在主窗口
+			function magnifier(id){
+				var index = 0;
+				var aSimglist = $(".simglist").children();
+				 $(".Big_img").css({
+				 	background : "url(images/detailpic/good"+ id +"/01.jpg) no-repeat",
+				 	backgroundSize: "480px 480px"
+				 })
+				for(let i = 0 ; i < aSimglist.length ; i++){
+					aSimglist.eq(i).mouseover(function(){
+						console.log(1)
+						for(var j = 0 ; j < aSimglist.length ; j++){
+							aSimglist.eq(j).removeClass("active");
+						}
+						aSimglist.eq(i).addClass("active");
+						$(".Big_img").css({
+							background:"url(images/detailpic/good"+ id +"/0"+ (i + 1) +".jpg) no-repeat",
+							backgroundSize: "480px 480px"
+						})
+						index = i;
+					})
+				}
+				$(".Big_img").mouseover(function(){
+					$(".position_box").css("display","block");
+					$(".big_box").css("display","block");
+				})
+				$(".Big_img").mouseout(function(){
+					$(".position_box").css("display","none")
+					$(".big_box").css("display","none");
+				})
+				$(".Big_img").mousemove(function(e){
+					var sImg = "";
+					sImg = '<img src="images/detailpic/good' + id +'/0'+ (index + 1) +'.jpg">';
+					$(".big_box_all").html(sImg);
+					var mouseX = e.pageX;
+					var mouseY = e.pageY;
+					var left = mouseX - $(".Big_img").offset().left - $(".position_box").width() / 2;
+					var top = mouseY - $(".Big_img").offset().top - $(".position_box").height() / 2
+					left = left <= 0 ? 0 : left;
+					top = top <= 0 ? 0  :top;
+					if(left >= $(".Big_img").width() - $(".position_box").width()){
+						left = $(".Big_img").width() - $(".position_box").width();
+					}
+					if(top >= $(".Big_img").height() - $(".position_box").height()){
+						top = $(".Big_img").height() - $(".position_box").height();
+					}
+					var leftProprtion = left / ($(".Big_img").width() - $(".position_box").width());
+			
+					var topProprtion = top / ($(".Big_img").height() - $(".position_box").height());
+			
+					$(".big_box_all").css({
+						left: -($(".big_box_all").width() - $(".big_box").width())* leftProprtion,
+						top : -($(".big_box_all").height() - $(".big_box").height()) * topProprtion
+					})
+					
+					$(".position_box").css({
+						left : left,
+						top : top
+					})
+					
+				})
+			};
+			magnifier(listId);
+		})
+	}
+
 	$(".detail_buy").click(function(){
 		var goodName = $(".detail_title").html();
 		var goodPrice = $(".price_num").html();
@@ -263,114 +529,10 @@ $.getJSON("data/goods.json",function(response,status,xhr){
 			return cartStr;
 	}
 
-	//鼠标滑过图片显示在主窗口
-	function magnifier(){
-		var index = 0;
-		var aSimglist = $(".simglist").children();
-		 $(".Big_img").css({
-		 	background : "url(images/detailpic/good"+ dataId +"/01.jpg) no-repeat",
-		 	backgroundSize: "480px 480px"
-		 })
-		for(let i = 0 ; i < aSimglist.length ; i++){
-			aSimglist.eq(i).mouseover(function(){
-				for(var j = 0 ; j < aSimglist.length ; j++){
-					aSimglist.eq(j).removeClass("active");
-				}
-				aSimglist.eq(i).addClass("active");
-				$(".Big_img").css({
-					background:"url(images/detailpic/good"+ dataId +"/0"+ (i + 1) +".jpg) no-repeat",
-					backgroundSize: "480px 480px"
-				})
-				index = i;
-			})
-		}
-		$(".Big_img").mouseover(function(){
-			$(".position_box").css("display","block");
-			$(".big_box").css("display","block");
-		})
-		$(".Big_img").mouseout(function(){
-			$(".position_box").css("display","none")
-			$(".big_box").css("display","none");
-		})
-		$(".Big_img").mousemove(function(e){
-			var sImg = "";
-			sImg = '<img src="images/detailpic/good' + dataId +'/0'+ (index + 1) +'.jpg">';
-			$(".big_box_all").html(sImg);
-			var mouseX = e.pageX;
-			var mouseY = e.pageY;
-			var left = mouseX - $(".Big_img").offset().left - $(".position_box").width() / 2;
-			var top = mouseY - $(".Big_img").offset().top - $(".position_box").height() / 2
-			left = left <= 0 ? 0 : left;
-			top = top <= 0 ? 0  :top;
-			if(left >= $(".Big_img").width() - $(".position_box").width()){
-				left = $(".Big_img").width() - $(".position_box").width();
-			}
-			if(top >= $(".Big_img").height() - $(".position_box").height()){
-				top = $(".Big_img").height() - $(".position_box").height();
-			}
-			var leftProprtion = left / ($(".Big_img").width() - $(".position_box").width());
 	
-			var topProprtion = top / ($(".Big_img").height() - $(".position_box").height());
-	
-			$(".big_box_all").css({
-				left: -($(".big_box_all").width() - $(".big_box").width())* leftProprtion,
-				top : -($(".big_box_all").height() - $(".big_box").height()) * topProprtion
-			})
-			
-			$(".position_box").css({
-				left : left,
-				top : top
-			})
-			
-		})
-	}
-	magnifier();
-})
-
-
-//加载购物车中的信息（使商品页与购物车页中的购物车数量同步）
-function loadCart(){
-	var cartStr = $.cookie("cart") ? $.cookie("cart") : "";
-	var cartObj = convertCartStrToObj(cartStr);
-	//获取到购物车中所有商品的数量
-	var total = 0;
-	for(var id in cartObj){
-		total += cartObj[id].num;
-	}
-	$(".mycart b").html(total);
+		
 }
-
-function convertCartStrToObj(cartStr) {
-	if(!cartStr) {
-		return {};
-	}
-	var goods = cartStr.split(":");
-	var obj = {};
-	for(var i = 0; i < goods.length; i++) {
-		var data = goods[i].split(",");
-		obj[data[0]] = {
-			name: data[1],
-			price: parseFloat(data[2]),
-			num: parseInt(data[3]),
-			src: data[4]
-		}
-	}
-	return obj;
-}
-
-
-function convertObjToCartStr(obj) {
-	var cartStr = "";
-	for(var id in obj) {
-		if(cartStr) {
-			cartStr += ":";
-		}
-		cartStr += id + "," + obj[id].name + "," + obj[id].price + "," + obj[id].num + "," + obj[id].src;
-	}
-	return cartStr;
-}
-
-
+goodmassage();
 
 })
 

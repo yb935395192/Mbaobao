@@ -14,7 +14,7 @@
             color: #ec1e22;
             font-weight: 700;
             font-size: 17px;
-            margin-right: 3px;
+            margin-right: 3px; 
         }
         .l_red2{
             color: #d41c4f;
@@ -27,9 +27,9 @@
     }
     .l_left{
         float: left;
-        height: 1350px;
+        height: auto;
         width: 192px;
-//      background: #004C96;
+        background: #fff;
         .l_left_title{
             height: 29px;
             width: 100%;
@@ -124,6 +124,7 @@
         width: 998px;
         float: left;
         margin-left: 10px;
+        min-height:1455px;
         .search_key{
             margin-bottom: 9px;
             height: 30px;

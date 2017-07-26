@@ -155,11 +155,14 @@ ul, ol {
         height: 30px;
         color: #fff;
         font-size: 11px;
-        background: url(../images/login_single_page.png) no-repeat 73px -166px;
+        background: url(../images/login_single_page.png) no-repeat;
+        background-position: 76px -166px;
         background-color: #f00;
         cursor: pointer;
         margin-left: 71px;
         margin-bottom: 35px; }
+      .main .user_login .user_massage .login_btn hover {
+        background-position: 78px -166px; }
     .main .user_login .login_link {
       float: left;
       color: #666;

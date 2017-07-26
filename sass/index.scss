@@ -23,7 +23,7 @@ $spiritV2:url(../images/H_top_v2.png);
             a{
                 color: #808080;
             }
-            a:hover{
+            a:hover{ 
                 color: #d41c4f;
             }
 		}
@@ -92,6 +92,10 @@ $spiritV2:url(../images/H_top_v2.png);
 		        }
 		        span{
 		            float: left;
+		            a{
+		                color: #666666;
+		                padding: 0;
+		            }
 		        }
 		        b{
 		            float: left;
@@ -115,31 +119,137 @@ $spiritV2:url(../images/H_top_v2.png);
 		            top: 27px;
 		            border: 1px #d3d3d3 solid;    
 		            background: #fff;
-		            display:none;
+		            display:none;  
 		            box-shadow: 2px 2px 5px #ddd;
+		            z-index: 99999999;
 		            p{
                         text-align: center;
                         font-size: 11px;
                         color: #888888;
                         padding: 15px;
-                        display: none;
+                        display: block;
                     }
                     .goodsInCart{
                         width: 100%;
                         overflow: hidden;
                         float: left;
-                        .goodInCart_ul{
+                        display: none;
+                        .gIC_ul{
                             width: 100%;
                             float: left;
+                            height: 78px;
                             position: relative;
+                            border-bottom: 1px solid #dddddd;
                             li{
                                 position:absolute;
+                                height:0;
+                                float: none;
+                                color:#666;
+                                border: none;
                             }
                             .gIC_pic{
                                 width: 50px;
                                 height: 50px;
                                 border: 1px #d6d6d6 solid;
+                                left: 15px;
+                                top: 13px;
+                                a{
+                                    padding: 0;
+                                }
+                                img{
+                                    width: 50px;
+                                    height: 50px;
+                                    float: left;
+                                }
                             }
+                            .gIC_name{
+                                width: 133px;
+                                font-size: 11px;
+                                line-height: 18px;
+                                left:75px;
+                                top: 19px;
+                                text-align:left;
+                                a{
+                                    line-height: 18px;
+                                    float: left;
+                                    padding:0;
+                                    color: #666;
+                                    text-align:left;
+                                }
+                                a:hover{
+                                     color: $headhover;
+                                 }
+                            }
+                            .gIC_num{
+                                width: 17px;
+                                height: 18px;
+                                background:#e8e8e8;
+                                text-align: center;
+                                line-height: 18px;
+                                top: 28px;
+                                right: 83px;
+                            }
+                            .gIC_price{
+                                font-size: 11px;
+                                font-weight: 700;
+                                color: #da2353;
+                                left: 255px;
+                                top:23px;
+                            }
+                            .gIC_remove{
+                                left: 255px;
+                                top: 52px;
+                                font-size: 11px;
+                                a{
+                                    color:#276fc4;
+                                    padding: 0;
+                                    line-height: 0px;
+                                }
+                                a:hover{
+                                    color:#276fc4;
+
+                                }
+                            }
+                        }
+                    }
+                    .InCartList{
+                        display: none;
+                        width: 100%;
+                        height: 66px;
+                        float: left;
+                        .num_total{
+                            float:left;
+                            line-height: 66px;
+                            font-size: 12px;
+                            margin-left: 12px;
+                            .ICL_num{
+                                font-size: 13px;
+                                color: #dc1c4f;
+                                font-weight: 500;
+                                float: left;
+                                margin-right: 2px ;
+                            }
+                            .ICL_total{
+                                color:#d41014;
+                                font-size: 18px;
+                                float: right;
+                                font-weight: 700;
+                                f{
+                                    font-size: 12px;
+                                    margin: 0 1px;
+                                }
+                            }
+                        }
+                        .gobuy{
+                            width: 99px;
+                            height: 29px;
+                            color: #fff;
+                            border: none;
+                            float: right;
+                            margin-right: 15px;
+                            margin-top: 19px;    
+                            background:#da2353;
+                            cursor: pointer;        
                         }
                     }
 		        }
@@ -151,6 +261,7 @@ $spiritV2:url(../images/H_top_v2.png);
 		            background: #fff;
 		            top: 26px;
 		            display:none;
+		            z-index: 999999999;
 		        }
 		    }
 		    .mycart:hover{
@@ -158,9 +269,8 @@ $spiritV2:url(../images/H_top_v2.png);
 		        border: 1px solid #cccccc;
                 border-bottom: none;
 		    }
-		    .mycart:hover span{
+		    .mycart:hover span a{
                 color:$headhover;
-                cursor: pointer;
             }
             .mycart:hover .cover{
                 display:block;
@@ -401,8 +511,24 @@ $spiritV2:url(../images/H_top_v2.png);
                     line-height: 35px;
                 }
             }
-           
-        }   
+        }  
+        .mobile_club{
+            float: right;
+            width: 78px;
+            height: 35px;
+            text-align: left;
+            overflow: hidden;
+            display: block;
+            background: $spiritV2 -225px -54px no-repeat;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            text-indent: 38px;
+            line-height: 35px;
+        } 
+        .mobile_club:hover{
+            text-decoration: underline;
+        }
     }
 }
 .nav_list{

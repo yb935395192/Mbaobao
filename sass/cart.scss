@@ -12,7 +12,7 @@
     .logo{
         float: left;
         margin-top: 27px;
-        margin-right: 25px;
+        margin-right: 25px;  
     }
     .cart_title{
         float: left;
@@ -201,6 +201,9 @@
                                 a{
                                     color: #666;
                                 }
+                            }
+                            .good_name:hover a{
+                                color: #d41c4f; 
                             }
                         }
                         li:nth-of-type(3){

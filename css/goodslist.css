@@ -48,8 +48,9 @@ ul, ol {
       line-height: 32px; }
   .containerList .l_left {
     float: left;
-    height: 1350px;
-    width: 192px; }
+    height: auto;
+    width: 192px;
+    background: #fff; }
     .containerList .l_left .l_left_title {
       height: 29px;
       width: 100%;
@@ -126,7 +127,8 @@ ul, ol {
   .containerList .l_right {
     width: 998px;
     float: left;
-    margin-left: 10px; }
+    margin-left: 10px;
+    min-height: 1455px; }
     .containerList .l_right .search_key {
       margin-bottom: 9px;
       height: 30px;

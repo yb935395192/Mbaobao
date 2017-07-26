@@ -27,7 +27,7 @@ ul, ol {
 .containerH {
   width: 100%;
   background: #f2f2f2;
-  border-bottom: 0.5px solid #ccc; }
+  border-bottom: 1px solid #ccc; }
   .containerH header {
     width: 960px;
     height: 34px;
@@ -53,7 +53,8 @@ ul, ol {
       line-height: 34px;
       float: left;
       margin-left: 8px;
-      color: #333; }
+      color: #333;
+      display: block; }
       .containerH header .user span {
         margin: 4px; }
         .containerH header .user span a {
@@ -96,6 +97,9 @@ ul, ol {
           margin: 4px 5px 0 9px; }
         .containerH header .userpanel .mycart span {
           float: left; }
+          .containerH header .userpanel .mycart span a {
+            color: #666666;
+            padding: 0; }
         .containerH header .userpanel .mycart b {
           float: left;
           font-size: 13px;
@@ -117,12 +121,116 @@ ul, ol {
           border: 1px #d3d3d3 solid;
           background: #fff;
           display: none;
-          box-shadow: 2px 2px 5px #ddd; }
+          box-shadow: 2px 2px 5px #ddd;
+          z-index: 99999999; }
           .containerH header .userpanel .mycart #cart p {
             text-align: center;
             font-size: 11px;
             color: #888888;
-            padding: 15px; }
+            padding: 15px;
+            display: block; }
+          .containerH header .userpanel .mycart #cart .goodsInCart {
+            width: 100%;
+            overflow: hidden;
+            float: left;
+            display: none; }
+            .containerH header .userpanel .mycart #cart .goodsInCart .gIC_ul {
+              width: 100%;
+              float: left;
+              height: 78px;
+              position: relative;
+              border-bottom: 1px solid #dddddd; }
+              .containerH header .userpanel .mycart #cart .goodsInCart .gIC_ul li {
+                position: absolute;
+                height: 0;
+                float: none;
+                color: #666;
+                border: none; }
+              .containerH header .userpanel .mycart #cart .goodsInCart .gIC_ul .gIC_pic {
+                width: 50px;
+                height: 50px;
+                border: 1px #d6d6d6 solid;
+                left: 15px;
+                top: 13px; }
+                .containerH header .userpanel .mycart #cart .goodsInCart .gIC_ul .gIC_pic a {
+                  padding: 0; }
+                .containerH header .userpanel .mycart #cart .goodsInCart .gIC_ul .gIC_pic img {
+                  width: 50px;
+                  height: 50px;
+                  float: left; }
+              .containerH header .userpanel .mycart #cart .goodsInCart .gIC_ul .gIC_name {
+                width: 133px;
+                font-size: 11px;
+                line-height: 18px;
+                left: 75px;
+                top: 19px;
+                text-align: left; }
+                .containerH header .userpanel .mycart #cart .goodsInCart .gIC_ul .gIC_name a {
+                  line-height: 18px;
+                  float: left;
+                  padding: 0;
+                  color: #666;
+                  text-align: left; }
+                .containerH header .userpanel .mycart #cart .goodsInCart .gIC_ul .gIC_name a:hover {
+                  color: #d41c4f; }
+              .containerH header .userpanel .mycart #cart .goodsInCart .gIC_ul .gIC_num {
+                width: 17px;
+                height: 18px;
+                background: #e8e8e8;
+                text-align: center;
+                line-height: 18px;
+                top: 28px;
+                right: 83px; }
+              .containerH header .userpanel .mycart #cart .goodsInCart .gIC_ul .gIC_price {
+                font-size: 11px;
+                font-weight: 700;
+                color: #da2353;
+                left: 255px;
+                top: 23px; }
+              .containerH header .userpanel .mycart #cart .goodsInCart .gIC_ul .gIC_remove {
+                left: 255px;
+                top: 52px;
+                font-size: 11px; }
+                .containerH header .userpanel .mycart #cart .goodsInCart .gIC_ul .gIC_remove a {
+                  color: #276fc4;
+                  padding: 0;
+                  line-height: 0px; }
+                .containerH header .userpanel .mycart #cart .goodsInCart .gIC_ul .gIC_remove a:hover {
+                  color: #276fc4; }
+          .containerH header .userpanel .mycart #cart .InCartList {
+            display: none;
+            width: 100%;
+            height: 66px;
+            float: left; }
+            .containerH header .userpanel .mycart #cart .InCartList .num_total {
+              float: left;
+              line-height: 66px;
+              font-size: 12px;
+              margin-left: 12px; }
+              .containerH header .userpanel .mycart #cart .InCartList .num_total .ICL_num {
+                font-size: 13px;
+                color: #dc1c4f;
+                font-weight: 500;
+                float: left;
+                margin-right: 2px; }
+              .containerH header .userpanel .mycart #cart .InCartList .num_total .ICL_total {
+                color: #d41014;
+                font-size: 18px;
+                float: right;
+                font-weight: 700; }
+                .containerH header .userpanel .mycart #cart .InCartList .num_total .ICL_total f {
+                  font-size: 12px;
+                  margin: 0 1px; }
+            .containerH header .userpanel .mycart #cart .InCartList .gobuy {
+              width: 99px;
+              height: 29px;
+              color: #fff;
+              border: none;
+              float: right;
+              margin-right: 15px;
+              margin-top: 19px;
+              background: #da2353;
+              cursor: pointer; }
         .containerH header .userpanel .mycart .cover {
           width: 117px;
           height: 3px;
@@ -130,14 +238,14 @@ ul, ol {
           left: 0px;
           background: #fff;
           top: 26px;
-          display: none; }
+          display: none;
+          z-index: 999999999; }
       .containerH header .userpanel .mycart:hover {
         background: #fff;
         border: 1px solid #cccccc;
         border-bottom: none; }
-      .containerH header .userpanel .mycart:hover span {
-        color: #d41c4f;
-        cursor: pointer; }
+      .containerH header .userpanel .mycart:hover span a {
+        color: #d41c4f; }
       .containerH header .userpanel .mycart:hover .cover {
         display: block; }
       .containerH header .userpanel .mycart:hover #cart {
@@ -566,6 +674,21 @@ ul, ol {
         .containerM .g_menu .nav_row li span {
           color: #e85573;
           line-height: 35px; }
+    .containerM .g_menu .mobile_club {
+      float: right;
+      width: 78px;
+      height: 35px;
+      text-align: left;
+      overflow: hidden;
+      display: block;
+      background: url(../images/H_top_v2.png) -225px -54px no-repeat;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      text-indent: 38px;
+      line-height: 35px; }
+    .containerM .g_menu .mobile_club:hover {
+      text-decoration: underline; }
 
 .subscribe {
   width: 960px;

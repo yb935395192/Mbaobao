@@ -3,6 +3,102 @@ $(function(){
 $(".containerH").load("http://localhost/Mbaobao/data/commonheader.html header",function(){
 	iflogin();
 	userexit();
+	loadCart();
+	 //页面加载购物车
+	function loadCart(){
+		var cartStr = $.cookie("cart") ? $.cookie("cart") : "";
+		var cartObj = convertCartStrToObj(cartStr);
+		if(!cartStr){
+			$("#cart p").css("display","block");
+			$(".goodsInCart").css("display","none");
+			$(".InCartList").css("display","none");
+			$(".mycart b").html("0");
+		}else{
+			$("#cart p").css("display","none");
+			$(".goodsInCart").css("display","block");
+			$(".InCartList").css("display","block");
+			var InCartnum = 0;
+			for(var id in cartObj){
+				InCartnum += cartObj[id].num;
+				var InCart = cartObj[id];
+				var str = '<ul class="gIC_ul" data-good-id="'+ id  +'"><li class="gIC_pic"><a href="M_detail.html"><img src="'+ InCart.src +'" alt="" /></a></li><li class="gIC_name"><a href="M_detail.html">'+ InCart.name +'</a></li><li class="gIC_num">'+ InCart.num +'</li><li class="gIC_price">¥ ' + InCart.price + '</li><li class="gIC_remove"><a class="gIC_remove_a" href="javascript:;">[删除]</a></li></ul>';
+				$(".goodsInCart").append(str);		
+			}
+			$(".mycart b").html(InCartnum);
+
+			function shoppinglist(){
+				var cartStr = $.cookie("cart") ? $.cookie("cart") : "";
+				var cartObj = convertCartStrToObj(cartStr);
+				var totalprice = 0;
+				var totalnum = 0;
+				var id = 0;
+				for(let j = 0 ; j < $(".gIC_ul").length; j++){
+					id = $(".gIC_ul").eq(j).attr("data-good-id");
+					totalprice += (cartObj[id].num * cartObj[id].price);
+					totalnum += cartObj[id].num;
+				}
+				$(".ICL_num").html(totalnum);
+				$(".ICL_total").html("<f>¥</f>" + totalprice)
+			}
+			shoppinglist();
+			
+			//删除按钮
+			$(".gIC_remove_a").click(function(){
+				var id = $(this).parents(".gIC_ul").remove().attr("data-good-id");
+				var cartStr = $.cookie("cart") ? $.cookie("cart") : "";
+				var cartObj = convertCartStrToObj(cartStr);
+				delete cartObj[id];
+				$.cookie('cart', convertObjToCartStr(cartObj), {expires: 7,path: "/"});
+				shoppinglist();
+				reloadCart();
+			})
+		}
+	}
+	
+	function reloadCart(){
+		var cartStr = $.cookie("cart") ? $.cookie("cart") : "";
+			var cartObj = convertCartStrToObj(cartStr);
+			//获取到购物车中所有商品的数量
+			var InCartnum = 0;
+			for(var id in cartObj){
+				InCartnum += cartObj[id].num;
+			}
+			$(".mycart b").html(InCartnum);
+			if(!cartStr){
+				$("#cart p").css("display","block");
+				$(".goodsInCart").css("display","none");
+				$(".InCartList").css("display","none");
+				$(".mycart b").html("0");
+			}
+	}
+	
+	function convertCartStrToObj(cartStr) {
+		if(!cartStr) {
+			return {};
+		}
+		var goods = cartStr.split(":");
+		var obj = {};
+		for(var i = 0; i < goods.length; i++) {
+			var data = goods[i].split(",");
+			obj[data[0]] = {
+				name: data[1],
+				price: parseFloat(data[2]),
+				num: parseInt(data[3]),
+				src: data[4]
+			}
+		}
+		return obj;
+	}
+	function convertObjToCartStr(obj) {
+		var cartStr = "";
+		for(var id in obj) {
+			if(cartStr) {
+				cartStr += ":";
+			}
+			cartStr += id + "," + obj[id].name + "," + obj[id].price + "," + obj[id].num + "," + obj[id].src;
+		}
+		return cartStr;
+	}
 });
 $(".logo").load("http://localhost/Mbaobao/data/commonheader.html .logo"); 
 $(".containerM").load("http://localhost/Mbaobao/data/commonheader.html .containerM",function(){
@@ -105,6 +201,7 @@ Pagination.prototype.init = function(){
          that.pagination();
     }
 }
+
 Pagination.prototype.loadData = function(){
     var that = this;
     $.ajax({
@@ -112,8 +209,30 @@ Pagination.prototype.loadData = function(){
         success:function(res){
             that.data = res;
             that.pagination();
+             for(let i = 0 ; i < $("#list li").length ; i++){
+				$(".minipic").eq(i).click(function(){
+		 			var str = $(".name").eq(i).attr("list-good-id");
+		 			$.cookie("listId",str);
+		 			var dataId = $.cookie("dataId") ? $.cookie("dataId") : "";
+		 			if(dataId){
+		 				$.cookie("dataId",null);
+		 			}
+		 			window.location.href = "M_detail.html";
+				})
+				$(".name").eq(i).click(function(){
+		 			var str = $(this).attr("list-good-id");
+		 			$.cookie("listId",str);
+		 			window.location.href = "M_detail.html"
+		 			var dataId = $.cookie("dataId") ? $.cookie("dataId") : "";
+		 			if(dataId){
+		 				$.cookie("dataId",null);
+		 			}
+				})
+			}
         }
     })
+
+    
 }
 
 Pagination.prototype.pagination = function(){
@@ -136,25 +255,9 @@ Pagination.prototype.RenderingPag = function(){
     var html = "";
     for(var i = this.index * this.showNum ; i < (this.index + 1) * this.showNum; i++){
         if( i < this.data.length){
-        	html += `<li>
-				<a class="minipic" href="#">
-					<img src="`+this.data[i].img+`"/>
-				</a>
-				<div class="color_sel">
-					<div class="color_wrap">
-						<a href="#"><img src="`+this.data[i].img+`"/></a>
-					</div>
-				</div>
-				<div class="pro_info">
-					<a href="#" class="name">`+this.data[i].info+`</a>
-					<div class="price">
-						<stong class="red price1">¥`+this.data[i].price+`</stong>
-						<s class="price1">¥1188</s>
-					</div>
-				</div>
-			</li>` 
+        	html += '<li><a class="minipic" href="javascript:;"><img src="'+this.data[i].img+'"/></a><div class="color_sel"><div class="color_wrap"><a href="#"><img src="'+this.data[i].img+'"/></a></div></div><div class="pro_info"><a href="javascript:;" list-good-id="'+ this.data[i].id +'" class="name">'+ this.data[i].info +'</a><div class="price"><stong class="red price1">¥'+this.data[i].price1+'</stong><s class="price1">¥1188</s></div></div></li>'			
         }
-    }
+    }   
     html+= "</ul>"
     $("#list").html(html);
 }
@@ -234,7 +337,6 @@ function userexit(){
 	})
 }
 
- 
 
 
 })

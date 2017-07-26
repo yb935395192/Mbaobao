@@ -193,6 +193,8 @@ header {
                 margin-bottom: 2px; }
                 .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(2) .good_name a {
                   color: #666; }
+              .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(2) .good_name:hover a {
+                color: #d41c4f; }
             .cart_main .cart_wrapper .cart_selected .selected_main .selected_good_list .goodInfo li:nth-of-type(3) {
               left: 582px;
               top: 40px; }

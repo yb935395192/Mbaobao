@@ -17,9 +17,7 @@
 					{"maxurl":"images/detailpic/good1/03.jpg"},
 					{"maxurl":"images/detailpic/good1/04.jpg"},
 					{"maxurl":"images/detailpic/good1/05.jpg"},
-					{"maxurl":"images/detailpic/good1/06.jpg"},
-					{"maxurl":"images/detailpic/good1/07.jpg"},
-					{"maxurl":"images/detailpic/good1/08.jpg"}
+					{"maxurl":"images/detailpic/good1/06.jpg"}
 				],
 				"detailImg" : [
 					{"deurl":"images/detailpic/good1/xq1.jpg"},
@@ -28,9 +26,7 @@
 					{"deurl":"images/detailpic/good1/xq4.jpg"},
 					{"deurl":"images/detailpic/good1/xq5.jpg"},
 					{"deurl":"images/detailpic/good1/xq6.jpg"},
-					{"deurl":"images/detailpic/good1/xq7.jpg"},
-					{"deurl":"images/detailpic/good1/xq8.jpg"},
-					{"deurl":"images/detailpic/good1/xq9.jpg"}
+					{"deurl":"images/detailpic/good1/xq7.jpg"}
 				]
 			},
 			{
@@ -50,8 +46,7 @@
 					{"maxurl":"images/detailpic/good2/03.jpg"},
 					{"maxurl":"images/detailpic/good2/04.jpg"},
 					{"maxurl":"images/detailpic/good2/05.jpg"},
-					{"maxurl":"images/detailpic/good2/06.jpg"},
-					{"maxurl":"images/detailpic/good2/07.jpg"}
+					{"maxurl":"images/detailpic/good2/06.jpg"}
 				],
 				"detailImg" : [
 					{"deurl":"images/detailpic/good2/xq1.jpg"},
@@ -60,44 +55,120 @@
 					{"deurl":"images/detailpic/good2/xq4.jpg"},
 					{"deurl":"images/detailpic/good2/xq5.jpg"},
 					{"deurl":"images/detailpic/good2/xq6.jpg"},
-					{"deurl":"images/detailpic/good2/xq7.jpg"},
-					{"deurl":"images/detailpic/good2/xq8.jpg"},
-					{"deurl":"images/detailpic/good2/xq9.jpg"},
-					{"deurl":"images/detailpic/good2/xq10.jpg"},
-					{"deurl":"images/detailpic/good2/xq11.jpg"},
-					{"deurl":"images/detailpic/good2/xq12.jpg"},
-					{"deurl":"images/detailpic/good2/xq13.jpg"},
-					{"deurl":"images/detailpic/good2/xq14.jpg"},
-					{"deurl":"images/detailpic/good2/xq15.jpg"}
+					{"deurl":"images/detailpic/good2/xq7.jpg"}
 				]
 			},
 			{
 				"id":3,
-				"img" : "images/01.jpg@1e_1c_0o_0l_174h_174w_90q(6).jpg",
+				"img" : "images/detailpic/3.jpg",
 				"title": "[mbaobao]花朵钻饰系列单肩斜挎包",
 				"price": "229",
-				"original":"448"
+				"original":"448",
+				"colorImg": [
+				    {"colorurl": "images/detailpic/good3/1.jpg"},
+					{"colorurl" : "images/detailpic/good3/2.jpg"}
+				],
+				"maxImg" : [
+					{"maxurl":"images/detailpic/good3/01.jpg"},
+					{"maxurl":"images/detailpic/good3/02.jpg"},
+					{"maxurl":"images/detailpic/good3/03.jpg"},
+					{"maxurl":"images/detailpic/good3/04.jpg"},
+					{"maxurl":"images/detailpic/good3/05.jpg"},
+					{"maxurl":"images/detailpic/good3/06.jpg"}
+				],
+				"detailImg" : [
+					{"deurl":"images/detailpic/good3/xq1.jpg"},
+					{"deurl":"images/detailpic/good3/xq2.jpg"},
+					{"deurl":"images/detailpic/good3/xq3.jpg"},
+					{"deurl":"images/detailpic/good3/xq4.jpg"},
+					{"deurl":"images/detailpic/good3/xq5.jpg"},
+					{"deurl":"images/detailpic/good3/xq6.jpg"},
+					{"deurl":"images/detailpic/good3/xq7.jpg"}
+				]
 			},
 			{
 				"id":4,
-				"img" : "images/01.jpg@1e_1c_0o_0l_174h_174w_90q(5).jpg",
+				"img" : "images/detailpic/4.jpg",
 				"title": "[mbaobao]海洋风撞色条纹系列手提",
 				"price": "249",
-				"original":"488"
+				"original":"488",
+				"colorImg": [
+				    {"colorurl": "images/detailpic/good4/1.jpg"},
+					{"colorurl": "images/detailpic/good4/2.jpg"}
+				],
+				"maxImg" : [
+					{"maxurl":"images/detailpic/good4/01.jpg"},
+					{"maxurl":"images/detailpic/good4/02.jpg"},
+					{"maxurl":"images/detailpic/good4/03.jpg"},
+					{"maxurl":"images/detailpic/good4/04.jpg"},
+					{"maxurl":"images/detailpic/good4/05.jpg"},
+					{"maxurl":"images/detailpic/good4/06.jpg"}
+				],
+				"detailImg" : [
+					{"deurl":"images/detailpic/good4/xq1.jpg"},
+					{"deurl":"images/detailpic/good4/xq2.jpg"},
+					{"deurl":"images/detailpic/good4/xq3.jpg"},
+					{"deurl":"images/detailpic/good4/xq4.jpg"},
+					{"deurl":"images/detailpic/good4/xq5.jpg"},
+					{"deurl":"images/detailpic/good4/xq6.jpg"},
+					{"deurl":"images/detailpic/good4/xq7.jpg"}
+				]
 			},
 			{
 				"id":5,
-				"img" : "images/01.jpg@1e_1c_0o_0l_174h_174w_90q(4).jpg",
+				"img" : "images/detailpic/5.jpg",
 				"title": "[mbaobao]阳光速搭系列斜挎包",
 				"price": "129",
-				"original":"248"
+				"original":"248",
+				"colorImg": [
+				    {"colorurl": "images/detailpic/good5/1.jpg"},
+					{"colorurl": "images/detailpic/good5/2.jpg"}
+				],
+				"maxImg" : [
+					{"maxurl":"images/detailpic/good5/01.jpg"},
+					{"maxurl":"images/detailpic/good5/02.jpg"},
+					{"maxurl":"images/detailpic/good5/03.jpg"},
+					{"maxurl":"images/detailpic/good5/04.jpg"},
+					{"maxurl":"images/detailpic/good5/05.jpg"},
+					{"maxurl":"images/detailpic/good5/06.jpg"}
+				],
+				"detailImg" : [
+					{"deurl":"images/detailpic/good5/xq1.jpg"},
+					{"deurl":"images/detailpic/good5/xq2.jpg"},
+					{"deurl":"images/detailpic/good5/xq3.jpg"},
+					{"deurl":"images/detailpic/good5/xq4.jpg"},
+					{"deurl":"images/detailpic/good5/xq5.jpg"},
+					{"deurl":"images/detailpic/good5/xq6.jpg"},
+					{"deurl":"images/detailpic/good5/xq7.jpg"}
+				]
 			},
 			{
 				"id":6,
-				"img" : "images/01.jpg@1e_1c_0o_0l_174h_174w_90q(3).jpg",
+				"img" : "images/detailpic/6.jpg",
 				"title": "[mbaobao]萌兔森林系列手提单肩斜",
 				"price": "199",
-				"original":"388"
+				"original":"388",
+				"colorImg": [
+				    {"colorurl": "images/detailpic/good6/1.jpg"},
+					{"colorurl": "images/detailpic/good6/2.jpg"}
+				],
+				"maxImg" : [
+					{"maxurl":"images/detailpic/good6/01.jpg"},
+					{"maxurl":"images/detailpic/good6/02.jpg"},
+					{"maxurl":"images/detailpic/good6/03.jpg"},
+					{"maxurl":"images/detailpic/good6/04.jpg"},
+					{"maxurl":"images/detailpic/good6/05.jpg"},
+					{"maxurl":"images/detailpic/good6/06.jpg"}
+				],
+				"detailImg" : [
+					{"deurl":"images/detailpic/good6/xq1.jpg"},
+					{"deurl":"images/detailpic/good6/xq2.jpg"},
+					{"deurl":"images/detailpic/good6/xq3.jpg"},
+					{"deurl":"images/detailpic/good6/xq4.jpg"},
+					{"deurl":"images/detailpic/good6/xq5.jpg"},
+					{"deurl":"images/detailpic/good6/xq6.jpg"},
+					{"deurl":"images/detailpic/good6/xq7.jpg"}
+				]
 			},
 			{
 				"id":7,
