@@ -172,24 +172,88 @@
 			},
 			{
 				"id":7,
-				"img" : "images/01.jpg@1e_1c_0o_0l_174h_174w_90q(2).jpg",
+				"img" : "images/detailpic/7.jpg",
 				"title": "[mbaobao]猫头鹰公爵系列手提单肩",
 				"price": "269",
-				"original":"528"
+				"original":"528",
+				"colorImg": [
+				    {"colorurl": "images/detailpic/good7/1.jpg"},
+					{"colorurl": "images/detailpic/good7/2.jpg"},
+					{"colorurl": "images/detailpic/good7/3.jpg"}
+				],
+				"maxImg" : [
+					{"maxurl":"images/detailpic/good7/01.jpg"},
+					{"maxurl":"images/detailpic/good7/02.jpg"},
+					{"maxurl":"images/detailpic/good7/03.jpg"},
+					{"maxurl":"images/detailpic/good7/04.jpg"},
+					{"maxurl":"images/detailpic/good7/05.jpg"},
+					{"maxurl":"images/detailpic/good7/06.jpg"}
+				],
+				"detailImg" : [
+					{"deurl":"images/detailpic/good7/xq1.jpg"},
+					{"deurl":"images/detailpic/good7/xq2.jpg"},
+					{"deurl":"images/detailpic/good7/xq3.jpg"},
+					{"deurl":"images/detailpic/good7/xq4.jpg"},
+					{"deurl":"images/detailpic/good7/xq5.jpg"},
+					{"deurl":"images/detailpic/good7/xq6.jpg"},
+					{"deurl":"images/detailpic/good7/xq7.jpg"}
+				]
 			},
 			{
 				"id":8,
-				"img" : "images/01.jpg@1e_1c_0o_0l_174h_174w_90q(1).jpg",
+				"img" : "images/detailpic/8.jpg",
 				"title": "[mbaobao]奇趣水果系列手提单肩斜",
 				"price": "199",
-				"original":"388"
+				"original":"388",
+				"colorImg": [
+				    {"colorurl": "images/detailpic/good8/1.jpg"}
+				],
+				"maxImg" : [
+					{"maxurl":"images/detailpic/good8/01.jpg"},
+					{"maxurl":"images/detailpic/good8/02.jpg"},
+					{"maxurl":"images/detailpic/good8/03.jpg"},
+					{"maxurl":"images/detailpic/good8/04.jpg"},
+					{"maxurl":"images/detailpic/good8/05.jpg"},
+					{"maxurl":"images/detailpic/good8/06.jpg"}
+				],
+				"detailImg" : [
+					{"deurl":"images/detailpic/good8/xq1.jpg"},
+					{"deurl":"images/detailpic/good8/xq2.jpg"},
+					{"deurl":"images/detailpic/good8/xq3.jpg"},
+					{"deurl":"images/detailpic/good8/xq4.jpg"},
+					{"deurl":"images/detailpic/good8/xq5.jpg"},
+					{"deurl":"images/detailpic/good8/xq6.jpg"},
+					{"deurl":"images/detailpic/good8/xq7.jpg"}
+				]
 			},
 			{
 				"id":9,
-				"img" : "images/01.jpg@1e_1c_0o_0l_174h_174w_90q.jpg",
+				"img" : "images/detailpic/9.jpg",
 				"title": "[mbaobao]猫恋鱼系列单肩斜挎包",
 				"price": "229",
-				"original":"448"
+				"original":"448",
+				"colorImg": [
+				    {"colorurl": "images/detailpic/good9/1.jpg"},
+				    {"colorurl": "images/detailpic/good9/1.jpg"},
+				    {"colorurl": "images/detailpic/good9/1.jpg"}
+				],
+				"maxImg" : [
+					{"maxurl":"images/detailpic/good9/01.jpg"},
+					{"maxurl":"images/detailpic/good9/02.jpg"},
+					{"maxurl":"images/detailpic/good9/03.jpg"},
+					{"maxurl":"images/detailpic/good9/04.jpg"},
+					{"maxurl":"images/detailpic/good9/05.jpg"},
+					{"maxurl":"images/detailpic/good9/06.jpg"}
+				],
+				"detailImg" : [
+					{"deurl":"images/detailpic/good9/xq1.jpg"},
+					{"deurl":"images/detailpic/good9/xq2.jpg"},
+					{"deurl":"images/detailpic/good9/xq3.jpg"},
+					{"deurl":"images/detailpic/good9/xq4.jpg"},
+					{"deurl":"images/detailpic/good9/xq5.jpg"},
+					{"deurl":"images/detailpic/good9/xq6.jpg"},
+					{"deurl":"images/detailpic/good9/xq7.jpg"}
+				]
 			}
 		]
 	},
